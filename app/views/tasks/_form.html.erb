@@ -1,0 +1,7 @@
+<%= form_for([@project, @project.tasks.build]) do |f| %>
+    <%= f.text_field :name, placeholder: "New Task" %>
+    <div class="field">
+    <%# f.radio_button :status, "Status" %> 
+  </div>
+    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+<% end %>
