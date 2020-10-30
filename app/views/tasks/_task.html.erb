@@ -1,24 +1,18 @@
-<div >
+<div class="row">
     <% if task.completed? %>
-        <div class="complete">
-            <%= link_to "Mark as Compete",  complete_project_task_path(@project, task.id), method: :patch %>
-        </div>
         <div class="todo_item">
-            <p style="opacity: 0.4;"><strike><%= task.name %></strike></p>
+            <p style="opacity: 0.4" title="Completed"><strike><%= task.name %></strike></p>
         </div>
         <div class="trash">
-            <%= link_to "Delete", project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} %>
+            <%= link_to "Delete", project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"}, class: "btn btn-secondary my-2" %>
         </div>
     <% else %>
-        <div class="complete">
-                <%= link_to "Mark as Compete",  complete_project_task_path(@project, task.id), method: :patch %>
-            </div>
             <div class="todo_item">
-                <p><%= task.name %></p>
+                <p title="Click to Complete"><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
             </div>
             <div class="trash">
-                <%= link_to "Delete", project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} %>
+                <%= link_to "Delete", project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"},class: "btn btn-secondary my-2" %>
             </div>
-        <% end%>
+    <% end%>
 </div>
 <%# link_to "Edit", some_path %>

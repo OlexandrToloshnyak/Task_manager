@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     def complete
         @task.update_attribute(:complated_at, Time.now)
         @task.update_attribute(:status, true)
-        redirect_to @project, notice: "Task was complated!"
+        redirect_to @project, notice: "Task was completed!"
     end
 
     private

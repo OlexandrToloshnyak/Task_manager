@@ -1,10 +1,13 @@
 <article class="project">
-    <section class="post-head">
+    <section class="card mb-4 shadow-sm">
       <h2><%= link_to project.name, project_path(project) %></h2>
-      <small>
-        <%= link_to "Изменить", edit_project_path(project) %>
-        |
-        <%= link_to "Удалить", project_path(project), method: :delete, data: { confirm: 'Are you shure?'} %>
+      <small class="small">
+      <%= render project.tasks %>
+      </small>
+      <hr>
+      <small class="small">
+        <%= link_to "Edit", edit_project_path(project),class: "btn btn-sm btn-outline-secondary" %>
+        <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: 'Are you shure?'}, class: "btn btn-sm btn-outline-secondary"%>
       </small>
     </section>
 </article>
