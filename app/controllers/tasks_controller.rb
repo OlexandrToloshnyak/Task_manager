@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :set_project
-
+    before_action :set_task, except: [:create]
     def create 
         @task = @project.tasks.create(task_params)
         redirect_to @project
@@ -14,6 +14,12 @@ class TasksController < ApplicationController
             flash[:error] = "Task could not be deleted"
         end
         redirect_to @project
+    end
+
+    def complete
+        @task.update_attribute(:complated_at, Time.now)
+        @task.update_attribute(:status, true)
+        redirect_to @project, notice: "Task was complated!"
     end
 
     private

@@ -1,1 +1,10 @@
-<p><%= project.name %></p>
+<article class="project">
+    <section class="post-head">
+      <h2><%= link_to project.name, project_path(project) %></h2>
+      <small>
+        <%= link_to "Изменить", edit_project_path(project) %>
+        |
+        <%= link_to "Удалить", project_path(project), method: :delete, data: { confirm: 'Are you shure?'} %>
+      </small>
+    </section>
+</article>

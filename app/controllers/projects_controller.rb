@@ -34,8 +34,9 @@ def update
 end
 
 def destroy
+    @project.tasks.destroy_all
     @project.destroy
-    redirect_to posts_path, warning: 'The project has been deleted'
+    redirect_to root_path, warning: 'The project has been deleted'
 end
 
 private 

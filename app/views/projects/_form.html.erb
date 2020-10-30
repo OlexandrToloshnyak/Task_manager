@@ -1,3 +1,4 @@
-<%= form_for(@project, @project.tasks.biuld) do |f| %>
-    <%= f.text_field :name, placeholder: "New Project" %>
+<%= form_for(@project) do |f| %>
+    <%= f.text_field :name, placeholder: "Project Name" %>
+    <%= f.submit "Submit", disable_with: 'Submiting...' %>
 <% end %>
