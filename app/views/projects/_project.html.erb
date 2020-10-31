@@ -6,8 +6,13 @@
       </small>
       <hr>
       <small class="small">
-        <%= link_to "Edit", edit_project_path(project),class: "btn btn-sm btn-outline-secondary" %>
-        <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: 'Are you shure?'}, class: "btn btn-sm btn-outline-secondary"%>
+        <%= link_to edit_project_path(project) do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+        |
+        <%= link_to project_path(project), method: :delete, data: { confirm: 'Are you shure?'} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
       </small>
     </section>
 </article>

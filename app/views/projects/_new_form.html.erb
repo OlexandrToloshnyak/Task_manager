@@ -1,0 +1,12 @@
+<%= form_for(@project) do |f| %>
+<table style="margin-left: 20%">
+<th>
+    <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 0.5em; font-weight: bold;" %>
+    </th>
+<th>
+    <%= f.button :submit,class: "button" do %>
+      <i class="fas fa-chevron-down"  style="font-size: 0.5em; padding-bottom: 1em;"></i>
+    <% end %>
+</th>
+</table>
+<% end %>

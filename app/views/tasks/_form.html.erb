@@ -1,7 +1,11 @@
 <%= form_for([@project, @project.tasks.build]) do |f| %>
+    <table class="table">
+    <th>
     <%= f.text_field :name, placeholder: "New Task" %>
-    <div class="field">
-    <%# f.radio_button :status, "Status" %> 
-  </div>
-    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+    </th>
+    <th>
+    <%= f.button :submit,class: "button" do %>
+      <i class="fas fa-chevron-down"></i>
+    <% end %>
+  </table>
 <% end %>

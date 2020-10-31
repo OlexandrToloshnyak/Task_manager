@@ -1,4 +1,12 @@
 <%= form_for(@project) do |f| %>
-    <%= f.text_field :name, placeholder: "Project Name" %>
-    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+<table style="margin-left: 32%;margin-right: 25%;">
+<th>
+    <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 1.7em; font-weight: bold;" %>
+    </th>
+<th>
+    <%= f.button :submit,class: "button" do %>
+      <i class="fas fa-chevron-down"></i>
+    <% end %>
+</th>
+</table>
 <% end %>

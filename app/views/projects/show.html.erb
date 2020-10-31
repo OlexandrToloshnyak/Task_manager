@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-    <strong>Title:</strong>
-    <%= @project.name %>
+<p style="font-size: 2em; text-align: center;">
+    <strong><%= render "projects/form" %></strong>
 </p>
  
 <div id="projects_wrapper">
@@ -11,6 +10,12 @@
         <%= render "tasks/form" %>
     </div>
 </div>
-
-<%= link_to "Edit", edit_project_path(@project) %> |
-<%= link_to "Back", root_path %>
+<div style="text-align: center; font-size: 2em;" class="lk">
+<%= link_to root_path do %>
+    <i class="fas fa-arrow-left"></i>
+<% end %>
+|
+<%= link_to edit_project_path(@project) do %>
+    <i class="fa fa-edit"></i>
+<% end %>
+</div>

@@ -1,5 +1,2 @@
-<h1>New Project<h1>
-<%= form_for(@project) do |f| %>
-    <%= f.text_field :name, placeholder: "New Project" %>
-    <%= f.submit "Submit", disable_with: 'Submiting...' %>
-<% end %>
+<h1 style="text-align: center;">New Project<h1>
+<%= render 'new_form' %>
