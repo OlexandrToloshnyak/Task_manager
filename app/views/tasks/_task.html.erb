@@ -1,8 +1,24 @@
+<% if @project.tasks.errors.any? %>
+    <div class="alert alert-danger">
+        <h5><%= t('common.errors') %></h5>
+        <ul>
+            <% @project.tasks.errors.full_messages.each do |message|%>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 <div class="row">
     <% if task.completed? %>
         <div class="todo_item">
-            <p style="opacity: 0.4; margin-left: 2em;" title="Completed"><strike><%= task.name %></strike></p>
+            <p style="opacity: 0.4; margin-left: 2em;" title="Completed"><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
         </div>
+        <div id ="task-update" class="trash">
+                <%= link_to edit_project_task_path(@project, task.id) do %>
+                <i class="fa fa-edit"> </i>
+                <% end %>
+        </div>
+        |
         <div class="trash">
             <%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} do %>
                 <i class="fa fa-trash-o"> </i>
@@ -12,11 +28,18 @@
             <div class="todo_item">
                 <p style="margin-left: 2em;" title="Click to Complete"><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
             </div>
+            <div id ="task-update" class="trash">
+                <%= link_to edit_project_task_path(@project, task.id) do %>
+                <i class="fa fa-edit"> </i>
+                <% end %>
+            </div>
+            |
             <div class="trash">
                 <%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} do %>
                 <i class="fa fa-trash-o"> </i>
                 <% end %>
             </div>
+
     <% end%>
 </div>
 <%# link_to "Edit", some_path %>

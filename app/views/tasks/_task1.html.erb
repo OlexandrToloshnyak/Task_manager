@@ -1,0 +1,12 @@
+<div class="row">
+    <% if task.completed? %>
+        <div class="todo_item">
+            <p style="opacity: 0.4; margin-left: 2em; text-align: left;" title="Completed"><strike><%= task.name %></strike></p>
+        </div>
+    <% else %>
+            <div class="todo_item">
+                <p style="margin-left: 2em; text-align: left; padding-left: 1em;" title="Not Completed"><%= task.name %></p>
+            </div>
+    <% end %>
+</div>
+<%# link_to "Edit", some_path %> 

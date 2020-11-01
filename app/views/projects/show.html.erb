@@ -7,15 +7,11 @@
 <div id="projects_wrapper">
     <%= render @project.tasks %>
     <div id="form">
-        <%= render "tasks/form" %>
+        <%= render "tasks/new_form" %>
     </div>
 </div>
 <div style="text-align: center; font-size: 2em;" class="lk">
 <%= link_to root_path do %>
-    <i class="fas fa-arrow-left"></i>
-<% end %>
-|
-<%= link_to edit_project_path(@project) do %>
-    <i class="fa fa-edit"></i>
+    <i class="fas fa-arrow-left" title="Back"></i>
 <% end %>
 </div>

@@ -1,17 +1,30 @@
 <article class="project">
     <section class="card mb-4 shadow-sm">
-      <h2><%= link_to project.name, project_path(project) %></h2>
+      <h2 title="Rename Project"><%= link_to project.name, edit_project_path(project) %></h2>
       <small class="small">
-      <%= render project.tasks %>
+      <%# render project.tasks %>
+      <% project.tasks.each do |task| %>
+      <div class="row">
+        <% if task.completed? %>
+            <div class="todo_item">
+                <p style="opacity: 0.4; margin-left: 2em; text-align: left;" title="Completed"><strike><%= task.name %></strike></p>
+            </div>
+        <% else %>
+                <div class="todo_item">
+                    <p style="margin-left: 2em; text-align: left; padding-left: 1em;" title="Not Completed"><%= task.name %></p>
+                </div>
+    <% end %>
+</div>
+      <% end %>
       </small>
       <hr>
       <small class="small">
-        <%= link_to edit_project_path(project) do %>
-          <i class="fa fa-edit"></i>
+        <%= link_to project_path(project) do %>
+          <i class="fa fa-edit" title="Edit"></i>
         <% end %>
         |
         <%= link_to project_path(project), method: :delete, data: { confirm: 'Are you shure?'} do %>
-          <i class="fa fa-trash"></i>
+          <i class="fa fa-trash" title="Delete Project"></i>
         <% end %>
       </small>
     </section>

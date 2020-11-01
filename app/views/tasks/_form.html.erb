@@ -1,11 +1,12 @@
-<%= form_for([@project, @project.tasks.build]) do |f| %>
-    <table class="table">
-    <th>
-    <%= f.text_field :name, placeholder: "New Task" %>
+<%= form_for([@project,@task]) do |f| %>
+<table style="margin-left: 32%;margin-right: 25%;">
+<th>
+    <%= f.text_field :name,style: "font-size: 1.7em; font-weight: bold;" %>
     </th>
-    <th>
+<th>
     <%= f.button :submit,class: "button" do %>
       <i class="fas fa-chevron-down"></i>
     <% end %>
-  </table>
+</th>
+</table>
 <% end %>

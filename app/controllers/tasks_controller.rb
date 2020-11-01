@@ -3,7 +3,21 @@ class TasksController < ApplicationController
     before_action :set_task, except: [:create]
     def create 
         @task = @project.tasks.create(task_params)
-        redirect_to @project
+        if @task.save
+            redirect_to @project, success: 'The task was created'
+        else
+            redirect_to @project, danger: 'The task was not created'
+        end
+    end
+    def show
+    end
+    
+    def update
+        if @task.update_attributes(task_params)
+            redirect_to @project, success: 'The task has been updated'
+        else
+            render :edit , danger: 'The task has not been updated'
+        end
     end
 
     def destroy
@@ -17,9 +31,15 @@ class TasksController < ApplicationController
     end
 
     def complete
-        @task.update_attribute(:complated_at, Time.now)
-        @task.update_attribute(:status, true)
-        redirect_to @project, notice: "Task was completed!"
+        if @task.completed? != false
+            @task.update_attribute(:complated_at, nil)
+            @task.update_attribute(:status, false)
+        else
+            @task.update_attribute(:complated_at, Time.now)
+            @task.update_attribute(:status, true)
+        end
+        
+        redirect_to @project, notice: "Task status was changed!"
     end
 
     private
