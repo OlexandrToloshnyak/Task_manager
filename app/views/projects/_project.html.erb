@@ -24,7 +24,7 @@
             </div>
         <% when "critical" %>
             <div class="todo_item">
-                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
             </div>
         <% end %>
     <% else %>
@@ -47,7 +47,7 @@
             </div>
         <% when "critical" %>
             <div class="todo_item">
-                <p class="pr-critical" style="margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><%= task.name %></p>
+                <p class="pr-critical" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
             </div>
         <% end %>
     <% end%>

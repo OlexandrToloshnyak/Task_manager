@@ -19,7 +19,7 @@
             </div>
         <% when "critical" %>
             <div class="todo_item">
-                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
             </div>
         <% end %>
         <div id ="task-update" class="trash">
@@ -53,7 +53,7 @@
             </div>
         <% when "critical" %>
             <div class="todo_item">
-                <p class="pr-critical" style="margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+                <p class="pr-critical" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
             </div>
         <% end %>
             <div id ="task-update" class="trash">
