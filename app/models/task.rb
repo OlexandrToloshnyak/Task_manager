@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :project
   validates :name, presence: true, length: {minimum: 2,maximum: 60}
   # validates :priority, presence: true
-  validates :deadline, presence: true
+  # validates :deadline, presence: true
   enum priority: [:low,:normal,:important,:critical]
 
   def priority?

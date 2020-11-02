@@ -87,6 +87,11 @@ body {
 .h1{
 	text-align: center;
 }
+.inp {
+	input{
+	height: 1.5em !important;
+	}
+}
 .container-main {
 	width: 70%;
 	max-width: 750px;
@@ -96,6 +101,7 @@ body {
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
 	padding: 1em 0;
+	margin-bottom: 5%;
 }
 .small{
 	font-size: 0.4em;

@@ -6,7 +6,7 @@
     <div class="form-group mb-5">
     <%= f.input :priority, :as => :select, :collection => [nil,"low", "normal", "important", "critical"], selected: "normal" %>
     </div>
-    <div class="form-group p-2 mb-5">
+    <div class="form-group p-1 mb-5 inp" >
     <%= f.input :deadline, as: :date, html5: true %>
     </div>
     <%= button_tag type: 'submit', class: "button postfix mx-3 mb-4" do %>
