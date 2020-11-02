@@ -1,8 +1,27 @@
 <div class="row">
     <% if task.completed? %>
-        <div class="todo_item">
-            <p style="opacity: 0.4; margin-left: 2em;" title="Completed"><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
-        </div>
+        <% case task.priority?%>
+        <% when nil %>
+            <div class="todo_item">
+                <p class="pr-nil" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+            </div>
+        <% when "low" %>
+            <div class="todo_item">
+                <p class="pr-low" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+            </div>
+        <% when "normal" %>
+            <div class="todo_item">
+                <p class="pr-normal" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+            </div>
+        <% when "important" %>
+            <div class="todo_item">
+                <p class="pr-important" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+            </div>
+        <% when "critical" %>
+            <div class="todo_item">
+                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
+            </div>
+        <% end %>
         <div id ="task-update" class="trash">
                 <%= link_to edit_project_task_path(@project, task.id) do %>
                 <i class="fa fa-edit"> </i>
@@ -15,9 +34,28 @@
                 <% end %>
         </div>
     <% else %>
-            <div class="todo_item">
-                <p style="margin-left: 2em;" title="Click to Complete"><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+        <% case task.priority?%>
+        <% when nil %>
+        <div class="todo_item">
+                <p class="pr-nil" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>> <%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
             </div>
+        <% when "low" %>
+            <div class="todo_item">
+                <p class="pr-low" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+            </div>
+        <% when "normal" %>
+            <div class="todo_item">
+                <p class="pr-normal" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+            </div>
+        <% when "important" %>
+            <div class="todo_item">
+                <p class="pr-important" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+            </div>
+        <% when "critical" %>
+            <div class="todo_item">
+                <p class="pr-critical" style="margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
+            </div>
+        <% end %>
             <div id ="task-update" class="trash">
                 <%= link_to edit_project_task_path(@project, task.id) do %>
                 <i class="fa fa-edit"> </i>
@@ -32,4 +70,5 @@
 
     <% end%>
 </div>
+
 <%# link_to "Edit", some_path %>

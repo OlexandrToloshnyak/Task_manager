@@ -45,13 +45,13 @@ body {
 	font-weight: 100;
 }
 .card {
-	background: #4D596F32;
+	background: #4D596F11;
 	margin: 3%;
 	text-align: center;	
 	h2{
 		height: 1.5em;
 		border-radius: 3px;
-		background: #266FF6D2;
+		background: #266ff6d0;
 		a:hover{
 			color: white;
 		}
@@ -90,7 +90,7 @@ body {
 .container-main {
 	width: 70%;
 	max-width: 750px;
-	background: white;
+	background: #ffffff;
 	margin: 3em auto 0 auto;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
@@ -138,6 +138,56 @@ body {
 	width: 80%;
 	float: left;
 	margin-left: 3%;
+}
+.pr-nil {
+		color: black;
+		background-color: transparent;
+		text-decoration: none;
+		a:link, a:visited {
+			color: black;
+			background-color: transparent;
+			text-decoration: none;
+			}
+}
+.pr-low {
+		color: green;
+		background-color:transparent;
+		text-decoration: none;
+		a:link, a:visited {
+			color: green;
+			background-color: transparent;
+			text-decoration: none;
+			}
+}
+.pr-normal{
+		color: #266FF6FF;
+		background-color: transparent;
+		text-decoration: none;
+		a:link, a:visited {
+			color: #266FF6FF;
+			background-color: transparent;
+			text-decoration: none;
+			}
+}
+.pr-important{
+		color: orange;
+		background-color: transparent;
+		text-decoration: none;
+		a:link, a:visited {
+			color: orange;
+			background-color: transparent;
+			text-decoration: none;
+			}
+}
+.pr-critical{
+		color: red;
+		background-color: transparent;
+		text-decoration: none;
+		a:link, a:visited {
+			color: red;
+			background-color: transparent;
+			text-decoration: none;
+			}
 }
 #todo_items_wrapper {
 	.row {

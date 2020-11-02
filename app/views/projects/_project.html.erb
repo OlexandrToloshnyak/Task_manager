@@ -4,17 +4,53 @@
       <small class="small">
       <%# render project.tasks %>
       <% project.tasks.each do |task| %>
-      <div class="row">
-        <% if task.completed? %>
+      <% if task.completed? %>
+        <% case task.priority?%>
+        <% when nil %>
             <div class="todo_item">
-                <p style="opacity: 0.4; margin-left: 2em; text-align: left;" title="Completed"><strike><%= task.name %></strike></p>
+                <p class="pr-nil" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
             </div>
-        <% else %>
-                <div class="todo_item">
-                    <p style="margin-left: 2em; text-align: left; padding-left: 1em;" title="Not Completed"><%= task.name %></p>
-                </div>
-    <% end %>
-</div>
+        <% when "low" %>
+            <div class="todo_item">
+                <p class="pr-low" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+            </div>
+        <% when "normal" %>
+            <div class="todo_item">
+                <p class="pr-normal" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+            </div>
+        <% when "important" %>
+            <div class="todo_item">
+                <p class="pr-important" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+            </div>
+        <% when "critical" %>
+            <div class="todo_item">
+                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+            </div>
+        <% end %>
+    <% else %>
+        <% case task.priority?%>
+        <% when nil %>
+        <div class="todo_item">
+                <p class="pr-nil" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+            </div>
+        <% when "low" %>
+            <div class="todo_item">
+                <p class="pr-low" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+            </div>
+        <% when "normal" %>
+            <div class="todo_item">
+                <p class="pr-normal" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+            </div>
+        <% when "important" %>
+            <div class="todo_item">
+                <p class="pr-important" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+            </div>
+        <% when "critical" %>
+            <div class="todo_item">
+                <p class="pr-critical" style="margin-left: 2em;" title=<%= "#{task.priority}Deadline:#{task.deadline}" %>><%= task.name %></p>
+            </div>
+        <% end %>
+    <% end%>
       <% end %>
       </small>
       <hr>
