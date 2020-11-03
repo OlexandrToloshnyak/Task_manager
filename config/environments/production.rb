@@ -95,7 +95,21 @@ Rails.application.configure do
 
   # Generate digests for assets URLs  
   config.assets.digest = true
-
+  
+  config.action_mailer.default_url_options = { :host => "rubyrailstaskmanager.herokuapp.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :domain => 'smtp.gmail.com',
+  :user_name => "railstaskmanager@gmail.com",
+  :password => "1QAZ1QAZ",
+  :authentication => :login,
+  :enable_starttls_auto => true
+} 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
