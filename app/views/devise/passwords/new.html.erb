@@ -1,0 +1,20 @@
+<h2 style="text-align: center">Forgot your password?</h2>
+<div class="reg">
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Reset" %>
+  </div>
+</div>
+<% end %>
+<div style="text-align: center">
+  <%= render "devise/shared/links" %>
+</div>

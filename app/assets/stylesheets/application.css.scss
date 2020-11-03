@@ -103,6 +103,46 @@ body {
 	padding: 1em 0;
 	margin-bottom: 5%;
 }
+.reg{
+	margin-left: 10%;
+	margin-right: 10%;
+	input[type=text], input[type=email] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 3% 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	  }
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 3% 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+	  }
+	  
+	  /* Set a style for all buttons */
+	input[type="submit"] {
+	margin-left: 37%;
+	margin-right: 30%;
+	background: $dark;
+	outline: none;
+	border: none;
+	height: 40px;
+	border-radius: 4px;
+	width: 25%;
+	display: inline-block;
+	transition: all .4s ease-in-out;
+	cursor: pointer;
+	color: white;
+		&:hover {
+		background: #1c54bbd2;
+		color: white;
+		}
+	}
+}
 .small{
 	font-size: 0.4em;
 	margin-top: 1%;
