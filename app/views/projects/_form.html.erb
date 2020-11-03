@@ -1,22 +1,10 @@
-<% if @project.errors.any? %>
-    <div class="alert alert-danger">
-        <h5><%= t('common.errors') %></h5>
-        <ul>
-            <% @project.errors.full_messages.each do |message|%>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
 <%= form_for(@project) do |f| %>
-<table style="margin-left: 32%;margin-right: 25%;">
-<th>
-    <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 1.7em; font-weight: bold;" %>
-    </th>
-<th>
-    <%= f.button :submit,class: "button" do %>
-      <i class="fas fa-chevron-down"></i>
-    <% end %>
-</th>
-</table>
+<div class="card" style="height: 5em !important;">
+        <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 1.7em;text-align:center; font-weight: bold;" %>
+</div>
+<div class="d-flex justify-content-center">
+        <%= f.submit "Submit", id: "Submit-project",class: "sbm" %>
+        <%# <i class="fas fa-chevron-down"></i> %>
+        <%# end %>
+</div>
 <% end %>

@@ -1,3 +1,12 @@
 <h1 style="text-align: center;">Edit project</h1>
-
+<% if @project.errors.any? %>
+    <div class="alert alert-danger">
+        <h5><%= t('common.errors') %></h5>
+        <ul>
+            <% @project.errors.full_messages.each do |message|%>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 <%= render 'form' %>
