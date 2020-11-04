@@ -8,4 +8,15 @@ module ApplicationHelper
             notice: "alert-info"
         }[name.to_sym] || name
     end
+    def allow_project_edit?(project)
+        if  current_user.id == project.user_id or current_user.admin?
+            return true
+        else
+            return false
+        end
+      end
+
+    def creator_email(project)
+    return current_user.email
+    end
 end

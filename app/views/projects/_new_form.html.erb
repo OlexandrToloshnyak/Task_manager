@@ -11,6 +11,9 @@
 <%= form_for(@project) do |f| %>
 <table style="margin-left: 20%">
 <th>
+    <%= f.hidden_field :user_id, :value => current_user.id %>   
+</th>
+<th>
     <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 0.5em; font-weight: bold;" %>
     </th>
 <th>

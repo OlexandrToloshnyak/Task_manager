@@ -1,12 +1,15 @@
 class TasksController < ApplicationController
     before_action :set_project
     before_action :set_task, except: [:create]
+    before_action :authenticate_user!, except: [:index,:show]
     def create 
         @task = @project.tasks.create(task_params)
         if @task.save
-            redirect_to @project, success: 'The task was created'
+            flash[:success] = 'The task was created'
+            redirect_to @project
         else
-            redirect_to @project, danger: 'The task was not created'
+            flash[:error] = 'The task was not created'
+            redirect_to @project
         end
     end
     def show
@@ -14,9 +17,11 @@ class TasksController < ApplicationController
     
     def update
         if @task.update_attributes(task_params)
-            redirect_to @project, success: 'The task has been updated'
+            flash[:success] = 'The task was updated'
+            redirect_to @project
         else
-            render :edit , danger: 'The task has not been updated'
+            flash[:error] = 'The task was not updated'
+            render :edit
         end
     end
 

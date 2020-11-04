@@ -22,6 +22,8 @@
       projects_path %>  </span>
       <span class="p-2 text-dark"><%= link_to "New Project",
       new_project_path %>  </span>
+      <span class="p-2 text-dark"><%= link_to "Profile",
+      edit_user_registration_path,class: "btn btn-outline-primary"%>  </span>
       <span class="p-2 text-dark"><%= link_to "Log out",
       destroy_user_session_path, method: :delete,class: "btn btn-outline-primary"%>  </span>
   <% else %>
@@ -37,19 +39,21 @@
      new_user_registration_path, class: "btn btn-outline-primary" %>  </span>
   <% end %>
   </nav>
-  <%# <a class="btn btn-outline-primary" href="#">Sign up</a> %>
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" ></script>
   <div class="container-main">
   <% if flash.any? %>
-    <div class="card">
+    <%# <div class="card"> %>
     <% flash.each do |name, message| %>
-      <div class="alert alert-<%= bootstrap_class_for(name) %>">
-      <button class="close"></button>
+      <div class="alert <%= bootstrap_class_for(name) %> alert-dismissible" role="alert" style="background-color: rgba(250, 250, 250);
+		border: 1px solid gray;">
+        <button class="close" data-dismiss="alert">&times;</button>
         <%= message %>
       </div>  
     <% end  %>
-    </div>
+    <%# </div> %>
   <% end %>
   
     <%= yield %>

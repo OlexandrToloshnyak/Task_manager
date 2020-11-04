@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
 
 before_action :set_project, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!
+
 
 def index
     @project = Project.all
@@ -16,9 +18,11 @@ end
 def create
     @project = Project.new(project_params)
     if @project.save
-        redirect_to @project, success: 'The project was created'
+        flash[:success] = 'The project was created'
+        redirect_to @project
     else
-        render :new, danger: 'The project was not created'
+        flash[:error] = 'The project was not created'
+        render :new
     end
 end
 
@@ -27,16 +31,19 @@ end
 
 def update
     if @project.update_attributes(project_params)
-        redirect_to @project, success: 'The project has been updated'
+        flash[:success] = 'The project has been updated'
+        redirect_to @project
     else
-        render :edit, danger: 'The project has not been updated'
+        flash[:alert] = 'The project has not been updated'
+        render :edit
     end
 end
 
 def destroy
     @project.tasks.destroy_all
     @project.destroy
-    redirect_to root_path, warning: 'The project has been deleted'
+    flash[:alert] = 'The project was deleted'
+    redirect_to root_path
 end
 
 private 
@@ -45,7 +52,7 @@ def set_project
 end
 
 def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name,:user_id)
 end
     
 end

@@ -1,67 +1,71 @@
-<article class="project">
-    <section class="card mb-4 shadow-sm">
-      <h2 title="Rename Project"><%= link_to project.name, edit_project_path(project) %></h2>
-      <small class="small">
-      <%# render project.tasks %>
-      <% project.tasks.each do |task| %>
-      <% if task.completed? %>
-        <% case task.priority?%>
-        <% when nil %>
-            <div class="todo_item">
-                <p class="pr-nil" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
-            </div>
-        <% when "low" %>
-            <div class="todo_item">
-                <p class="pr-low" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
-            </div>
-        <% when "normal" %>
-            <div class="todo_item">
-                <p class="pr-normal" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
-            </div>
-        <% when "important" %>
-            <div class="todo_item">
-                <p class="pr-important" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
-            </div>
-        <% when "critical" %>
-            <div class="todo_item">
-                <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
-            </div>
-        <% end %>
-    <% else %>
-        <% case task.priority?%>
-        <% when nil %>
-        <div class="todo_item">
-                <p class="pr-nil" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
-            </div>
-        <% when "low" %>
-            <div class="todo_item">
-                <p class="pr-low" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
-            </div>
-        <% when "normal" %>
-            <div class="todo_item">
-                <p class="pr-normal" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
-            </div>
-        <% when "important" %>
-            <div class="todo_item">
-                <p class="pr-important" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
-            </div>
-        <% when "critical" %>
-            <div class="todo_item">
-                <p class="pr-critical" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
-            </div>
-        <% end %>
-    <% end%>
-      <% end %>
-      </small>
-      <hr>
-      <small class="small">
-        <%= link_to project_path(project) do %>
-          <i class="fa fa-edit" title="Edit"></i>
-        <% end %>
-        |
-        <%= link_to project_path(project), method: :delete, data: { confirm: 'Are you shure?'} do %>
-          <i class="fa fa-trash" title="Delete Project"></i>
-        <% end %>
-      </small>
-    </section>
-</article>
+<% if user_signed_in? %>
+    <% if allow_project_edit?(project) %>
+        <article class="project">
+            <section class="card mb-4 shadow-sm">
+            <h2 title="Rename Project"><%= link_to project.name, edit_project_path(project) %></h2>
+            <small class="small">
+            <%# render project.tasks %>
+            <% project.tasks.each do |task| %>
+            <% if task.completed? %>
+                <% case task.priority?%>
+                <% when nil %>
+                    <div class="todo_item">
+                        <p class="pr-nil" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                    </div>
+                <% when "low" %>
+                    <div class="todo_item">
+                        <p class="pr-low" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                    </div>
+                <% when "normal" %>
+                    <div class="todo_item">
+                        <p class="pr-normal" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                    </div>
+                <% when "important" %>
+                    <div class="todo_item">
+                        <p class="pr-important" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                    </div>
+                <% when "critical" %>
+                    <div class="todo_item">
+                        <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= task.name %></strike></p>
+                    </div>
+                <% end %>
+            <% else %>
+                <% case task.priority?%>
+                <% when nil %>
+                <div class="todo_item">
+                        <p class="pr-nil" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+                    </div>
+                <% when "low" %>
+                    <div class="todo_item">
+                        <p class="pr-low" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+                    </div>
+                <% when "normal" %>
+                    <div class="todo_item">
+                        <p class="pr-normal" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+                    </div>
+                <% when "important" %>
+                    <div class="todo_item">
+                        <p class="pr-important" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+                    </div>
+                <% when "critical" %>
+                    <div class="todo_item">
+                        <p class="pr-critical" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= task.name %></p>
+                    </div>
+                <% end %>
+            <% end%>
+            <% end %>
+            </small>
+            <hr>
+            <small class="small">
+                <%= link_to project_path(project) do %>
+                <i class="fa fa-edit" title="Edit"></i>
+                <% end %>
+                |
+                <%= link_to project_path(project), method: :delete, data: { confirm: 'Are you shure?'} do %>
+                <i class="fa fa-trash" title="Delete Project"></i>
+                <% end %>
+            </small>
+            </section>
+        </article>
+    <% end %>
+<% end %>
