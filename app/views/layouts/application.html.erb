@@ -13,30 +13,30 @@
   </head>
 
   <body>
-  <div class="container">
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <div id="nav" class="container">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm ">
   <% if user_signed_in? %>
-  <h5 class="my-0 mr-md-auto font-weight-bold"><a class="nav-link active" href="<%= projects_path %>">To-Do</a></h5>
+  <h5 class="my-0 mr-md-auto font-weight-bold navs"><a class="nav-link active" href="<%= projects_path %>">To-Do</a></h5>
       <nav class="my-2 my-md-0 mr-md-3">
-      <span class="p-2 text-dark"><%= link_to "Main Page",
+      <span class="p-2 text-dark navs"><%= link_to "Main Page",
       projects_path %>  </span>
-      <span class="p-2 text-dark"><%= link_to "New Project",
+      <span class="p-2 text-dark navs"><%= link_to "New Project",
       new_project_path %>  </span>
       <span class="p-2 text-dark"><%= link_to "Profile",
-      edit_user_registration_path,class: "btn btn-outline-primary"%>  </span>
+      edit_user_registration_path,class: "btn btn-outline-primary buttons"%>  </span>
       <span class="p-2 text-dark"><%= link_to "Log out",
-      destroy_user_session_path, method: :delete,class: "btn btn-outline-primary"%>  </span>
+      destroy_user_session_path, method: :delete,class: "btn btn-outline-primary buttons"%>  </span>
   <% else %>
-  <h5 class="my-0 mr-md-auto font-weight-bold"><a class="nav-link active" href="<%= projects_path %>">To-Do</a></h5>
+  <h5 class="my-0 mr-md-auto font-weight-bold navs"><a class="nav-link active" href="<%= projects_path %>">To-Do</a></h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <span class="p-2 text-dark"><%= link_to "Main Page",
+    <span class="p-2 text-dark navs"><%= link_to "Main Page",
     projects_path %>  </span>
-    <span class="p-2 text-dark"><%= link_to "New Project",
+    <span class="p-2 text-dark navs"><%= link_to "New Project",
     new_project_path %>  </span>
     <span class="p-2 text-dark"><%= link_to "Log In",
-    new_user_session_path, class: "btn btn-outline-primary" %>  </span>
+    new_user_session_path, class: "btn btn-outline-primary buttons" %>  </span>
     <span class="p-2 text-dark"><%= link_to "Sign up",
-     new_user_registration_path, class: "btn btn-outline-primary" %>  </span>
+     new_user_registration_path, class: "btn btn-outline-primary buttons" %>  </span>
   <% end %>
   </nav>
 </div>
@@ -48,7 +48,7 @@
     <%# <div class="card"> %>
     <% flash.each do |name, message| %>
       <div class="alert <%= bootstrap_class_for(name) %> alert-dismissible" role="alert" style="background-color: rgba(250, 250, 250);
-		border: 1px solid gray;">
+		border: 1px solid gray; margin-left: 5%; margin-right: 5%">
         <button class="close" data-dismiss="alert">&times;</button>
         <%= message %>
       </div>  

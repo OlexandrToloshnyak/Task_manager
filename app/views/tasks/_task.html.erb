@@ -22,13 +22,13 @@
                 <p class="pr-critical" style="opacity: 0.4; margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><strike><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></strike></p>
             </div>
         <% end %>
-        <div id ="task-update" class="trash">
+        <div id ="task-update" class="trash navs">
                 <%= link_to edit_project_task_path(@project, task.id) do %>
                 <i class="fa fa-edit"> </i>
                 <% end %>
         </div>
         |
-        <div class="trash">
+        <div class="trash navs">
             <%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} do %>
                 <i class="fa fa-trash-o"> </i>
                 <% end %>
@@ -56,13 +56,13 @@
                 <p class="pr-critical" style="margin-left: 2em;" title=<%= "Deadline:#{task.deadline}" %>><%= link_to task.name,  complete_project_task_path(@project, task.id), method: :patch %></p>
             </div>
         <% end %>
-            <div id ="task-update" class="trash">
+            <div id ="task-update" class="trash navs">
                 <%= link_to edit_project_task_path(@project, task.id) do %>
                 <i class="fa fa-edit"> </i>
                 <% end %>
             </div>
             |
-            <div class="trash">
+            <div class="trash navs">
                 <%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you shure?"} do %>
                 <i class="fa fa-trash-o"> </i>
                 <% end %>

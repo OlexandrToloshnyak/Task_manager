@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     def create 
         @task = @project.tasks.create(task_params)
         if @task.save
-            flash[:success] = 'The task was created'
+            flash[:success] = 'The new task was created'
             redirect_to @project
         else
             flash[:error] = 'The task was not created'

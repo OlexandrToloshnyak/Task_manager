@@ -14,11 +14,12 @@
     <%= f.hidden_field :user_id, :value => current_user.id %>   
 </th>
 <th>
-    <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 0.5em; font-weight: bold;" %>
+    <%= f.text_field :name, placeholder: "Project Name",style: "font-size: 0.5em; font-weight: bold; border: 2px solid #7d9c92" %>
     </th>
 <th>
+&nbsp;
     <%= f.button :submit,class: "button" do %>
-      <i class="fas fa-chevron-down"  style="font-size: 0.5em; padding-bottom: 1em;"></i>
+      <i class="fas fa-chevron-down"  style="font-size: 0.5em; padding-bottom: 1.5em;"></i>
     <% end %>
 </th>
 </table>
