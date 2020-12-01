@@ -9,10 +9,6 @@ class Task < ApplicationRecord
     return priority
   end
 
-  def islow?
-    return  priority == "low"
-  end
-
   def completed?
     if status.nil? or complated_at.blank?
       return false 
