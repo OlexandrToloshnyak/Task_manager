@@ -1,5 +1,5 @@
 # README
-[Task Manager](https://rubyrailstaskmanager.herokuapp.com/ "Task Manager")
+## [Task Manager](https://rubyrailstaskmanager.herokuapp.com/ "Task Manager")
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
